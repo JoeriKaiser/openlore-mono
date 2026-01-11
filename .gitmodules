@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/JoeriKaiser/openlore-api
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/JoeriKaiser/openlore
