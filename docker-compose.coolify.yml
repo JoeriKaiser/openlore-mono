@@ -50,6 +50,7 @@ services:
       - RAG_TOP_K=${RAG_TOP_K:-6}
       - RAG_CHUNK_TOKENS=${RAG_CHUNK_TOKENS:-240}
       - RAG_CHUNK_OVERLAP_TOKENS=${RAG_CHUNK_OVERLAP_TOKENS:-40}
+      - REGISTRATION_ENABLED=${REGISTRATION_ENABLED:-false}
     volumes:
       - models:/app/models
     depends_on:
@@ -75,7 +76,7 @@ services:
       dockerfile: Dockerfile
       args:
         VITE_API_URL: ${VITE_API_URL:-https://api.lore.waldemar.site/api}
-        VITE_REGISTRATION_ENABLED: ${VITE_REGISTRATION_ENABLED:-true}
+        VITE_REGISTRATION_ENABLED: ${VITE_REGISTRATION_ENABLED:-false}
     restart: unless-stopped
     networks:
       - openlore-internal
