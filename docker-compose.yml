@@ -81,7 +81,7 @@ services:
       - openlore-network
     environment:
       - VITE_API_URL=/api
-      - VITE_REGISTRATION_ENABLED=${VITE_REGISTRATION_ENABLED:-true}
+      - VITE_REGISTRATION_ENABLED=${VITE_REGISTRATION_ENABLED:-false}
     volumes:
       - ./frontend:/app
       - /app/node_modules
