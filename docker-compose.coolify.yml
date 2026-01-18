@@ -1,6 +1,9 @@
 networks:
   openlore-internal:
     driver: bridge
+  coolify:
+    external: true
+    name: coolify
 
 volumes:
   postgres_data:
@@ -31,6 +34,7 @@ services:
     restart: unless-stopped
     networks:
       - openlore-internal
+      - coolify
     environment:
       - NODE_ENV=production
       - PORT=3000
@@ -80,6 +84,7 @@ services:
     restart: unless-stopped
     networks:
       - openlore-internal
+      - coolify
     depends_on:
       backend:
         condition: service_healthy
