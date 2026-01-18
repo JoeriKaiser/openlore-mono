@@ -3,7 +3,6 @@ networks:
     driver: bridge
   coolify:
     external: true
-    name: coolify
 
 volumes:
   postgres_data:
@@ -68,6 +67,7 @@ services:
       start_period: 40s
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=coolify"
       - "traefik.http.routers.openlore-backend.rule=Host(`api.lore.waldemar.site`)"
       - "traefik.http.routers.openlore-backend.entrypoints=https"
       - "traefik.http.routers.openlore-backend.tls=true"
@@ -96,6 +96,7 @@ services:
       start_period: 5s
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=coolify"
       - "traefik.http.routers.openlore-frontend.rule=Host(`lore.waldemar.site`)"
       - "traefik.http.routers.openlore-frontend.entrypoints=https"
       - "traefik.http.routers.openlore-frontend.tls=true"
